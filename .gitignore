@@ -8,3 +8,7 @@ __pycache__/
 # test coverage
 .coverage
 coverage.xml
+
+# static files
+public/schema_doc.css
+public/schema_doc.min.js
