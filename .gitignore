@@ -1,0 +1,10 @@
+# python cache files
+__pycache__/
+*.pyc
+
+# vercel
+.vercel
+
+# test coverage
+.coverage
+coverage.xml

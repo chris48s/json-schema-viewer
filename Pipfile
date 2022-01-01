@@ -1,0 +1,20 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+json-schema-for-humans = "==0.39.3"
+requests = "==2.26.0"
+
+[dev-packages]
+isort = "==5.10.1"
+flake8 = "==4.0.1"
+black = "==21.12b0"
+
+[requires]
+python_version = "3.9"
+
+[scripts]
+format = "bash -c 'isort . && black .'"
+lint = "bash -c 'isort --diff . -- && black --check . && flake8 .'"
