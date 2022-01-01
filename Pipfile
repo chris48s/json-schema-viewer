@@ -18,3 +18,4 @@ python_version = "3.9"
 [scripts]
 format = "bash -c 'isort . && black .'"
 lint = "bash -c 'isort --diff . -- && black --check . && flake8 .'"
+build = "./build.py"
