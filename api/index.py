@@ -56,7 +56,6 @@ class handler(BaseHTTPRequestHandler):
         except RequestException as e:
             return self._response(500, "text/plain", str(e))
 
-        # TODO: try/catch. What errors does this throw?
         rendered = self._render_schema(resp.content)
 
         return self._response(200, "text/html", rendered)
@@ -87,6 +86,6 @@ class handler(BaseHTTPRequestHandler):
         with NamedTemporaryFile(suffix='.json') as tmp:
             tmp.write(schema)
             tmp.seek(0)
-            intermediate_schema = build_intermediate_representation(tmp, None)
+            intermediate_schema = build_intermediate_representation(tmp, config)
 
         return template_renderer.render(intermediate_schema)
