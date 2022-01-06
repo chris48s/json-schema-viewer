@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 json-schema-for-humans = "==0.39.5"
-requests = "==2.26.0"
+requests = "==2.27.1"
 
 [dev-packages]
 isort = "==5.10.1"
