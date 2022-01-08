@@ -83,7 +83,7 @@ class handler(BaseHTTPRequestHandler):
 
         template_renderer = TemplateRenderer(config)
 
-        with NamedTemporaryFile(suffix='.json') as tmp:
+        with NamedTemporaryFile(suffix=".json") as tmp:
             tmp.write(schema)
             tmp.seek(0)
             intermediate_schema = build_intermediate_representation(tmp, config)
