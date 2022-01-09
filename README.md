@@ -9,5 +9,7 @@ View a human-readable representation of a JSON schema on the web using [coveooss
 
 ```
 npm install -g vercel
+pipenv shell
+pipenv sync --dev
 vercel dev
 ```
