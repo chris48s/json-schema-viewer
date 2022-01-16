@@ -1,0 +1,23 @@
+name: Run tests
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install python
+        uses: chris48s/python-package-shared@main
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pipenv sync
+
+      - name: Run tests
+        run: pipenv run test
+
+      - name: Check coding standards
+        run: pipenv run lint
