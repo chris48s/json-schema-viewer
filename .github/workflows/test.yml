@@ -14,7 +14,9 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: pipenv sync
+        run: |
+          pip install pipenv
+          pipenv sync --dev
 
       - name: Run tests
         run: pipenv run test
