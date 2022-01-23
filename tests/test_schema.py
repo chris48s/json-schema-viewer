@@ -17,6 +17,13 @@ def test_get_url_no_trailing_slash_base():
     )
 
 
+def test_get_url_with_anchor():
+    assert (
+        schema.get_url("http://base.url", "schema.json#foobar")
+        == "http://base.url/schema.json"
+    )
+
+
 @responses.activate
 def test_collect_schemas():
     responses.add(
@@ -26,7 +33,8 @@ def test_collect_schemas():
             "$schema": "http://json-schema.org/draft-07/schema#",
             "anyOf": [
                 {"$ref": "relative-schema1.json#"},
-                {"$ref": "relative-schema2.json#"},
+                {"$ref": "relative-schema2.json#foo"},
+                {"$ref": "relative-schema2.json#bar"},
                 {"$ref": "https://explicit.external.ref/schema3.json"},
                 {"$ref": "#internal-ref4"},
             ],
@@ -50,6 +58,7 @@ def test_collect_schemas():
     )
     urls = [s.url for s in result]
 
+    assert len(responses.calls) == 3
     assert len(urls) == 3
     assert "https://example.com/schema.json" in urls
     assert "https://example.com/relative-schema1.json" in urls
@@ -138,6 +147,7 @@ def test_collect_schemas_with_multiple_levels():
     )
     urls = [s.url for s in result]
 
+    assert len(responses.calls) == 3
     assert len(urls) == 3
     assert "https://example.com/schema.json" in urls
     assert "https://example.com/relative-schema1.json" in urls

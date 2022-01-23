@@ -30,7 +30,10 @@ def get_base(url):
 
 
 def get_url(base, schema):
-    return urllib.parse.urljoin(f"{base.rstrip('/')}/", schema)
+    url, _ = urllib.parse.urldefrag(
+        urllib.parse.urljoin(f"{base.rstrip('/')}/", schema)
+    )
+    return url
 
 
 def get_remote_refs(node, base_url):
