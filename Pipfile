@@ -13,6 +13,7 @@ flake8 = "==4.0.1"
 black = "==21.12b0"
 pytest = "==6.2.5"
 pytest-cov = "==3.0.0"
+responses = "==0.17.0"
 
 [requires]
 python_version = "3.9"
@@ -21,4 +22,4 @@ python_version = "3.9"
 build = "./build.py"
 format = "bash -c 'isort . && black .'"
 lint = "bash -c 'isort --diff . -- && black --check . && flake8 .'"
-test = "pytest --cov=lib --cov=api --cov-report term --cov-report xml ./tests"
+test = "pytest -s --cov=lib --cov=api --cov-report term --cov-report xml ./tests"
