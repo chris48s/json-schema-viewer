@@ -61,6 +61,5 @@ def collect_schemas(schemas):
             if new_schema not in schemas:
                 schemas.append(new_schema)
         schema.schema = r.content
-    if len([s.fetched for s in schemas]) == len(schemas):
-        return schemas
-    return collect_schemas(schemas)
+
+    return schemas
