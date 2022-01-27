@@ -1,5 +1,4 @@
 import os
-from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from requests.exceptions import RequestException
@@ -7,6 +6,7 @@ from starlette.applications import Starlette
 from starlette.responses import RedirectResponse, Response
 from starlette.routing import Route
 
+from lib.filesystem import write_schemas
 from lib.renderer import render_schema
 from lib.schema import RemoteSchema, collect_schemas
 
@@ -22,14 +22,7 @@ async def view(request):
         return Response(str(e), status_code=500, media_type="text/plain")
 
     with TemporaryDirectory() as tempdir:
-        for i, schema in enumerate(schemas):
-            filename = Path(tempdir) / schema.filepath.lstrip("/")
-            filename.parent.mkdir(parents=True, exist_ok=True)
-            if i == 0:
-                target_filename = filename
-            with open(filename, "wb") as f:
-                f.write(schema.schema)
-
+        target_filename = write_schemas(schemas, tempdir)
         rendered = render_schema(target_filename)
 
     return Response(rendered, status_code=200, media_type="text/html")
