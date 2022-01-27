@@ -1,7 +1,8 @@
 import os
+from json import JSONDecodeError
 from tempfile import TemporaryDirectory
 
-from requests.exceptions import RequestException
+from httpx import RequestError
 from starlette.applications import Starlette
 from starlette.responses import RedirectResponse, Response
 from starlette.routing import Route
@@ -17,8 +18,8 @@ async def view(request):
         return RedirectResponse(url="/")
 
     try:
-        schemas = collect_schemas([RemoteSchema(url=url)])
-    except RequestException as e:
+        schemas = await collect_schemas([RemoteSchema(url=url)])
+    except (RequestError, JSONDecodeError) as e:
         return Response(str(e), status_code=500, media_type="text/plain")
 
     with TemporaryDirectory() as tempdir:

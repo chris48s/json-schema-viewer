@@ -1,7 +1,7 @@
 import urllib.parse
 from dataclasses import dataclass
 
-import requests
+import httpx
 
 
 @dataclass(eq=False)
@@ -52,11 +52,12 @@ def get_remote_refs(node, base_url):
     return list(set(refs))
 
 
-def collect_schemas(schemas):
+async def collect_schemas(schemas):
+    client = httpx.AsyncClient()
     for schema in schemas:
         if schema.fetched:
             continue
-        r = requests.get(schema.url)
+        r = await client.get(schema.url)
         r.raise_for_status()
         refs = get_remote_refs(r.json(), get_base(schema.url))
         for ref in refs:

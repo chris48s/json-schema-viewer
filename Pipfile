@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 json-schema-for-humans = "==0.40"
-requests = "==2.27.1"
 starlette = "==0.18.0"
+httpx = "==0.22.0"
 
 [dev-packages]
 isort = "==5.10.1"
@@ -14,7 +14,7 @@ flake8 = "==4.0.1"
 black = "==21.12b0"
 pytest = "==6.2.5"
 pytest-cov = "==3.0.0"
-responses = "==0.17.0"
+respx = "==0.19.1"
 
 [requires]
 python_version = "3.9"
