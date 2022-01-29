@@ -1,3 +1,4 @@
+import asyncio
 import urllib.parse
 from dataclasses import dataclass
 
@@ -36,34 +37,41 @@ def get_url(base, schema):
     return url
 
 
-def get_remote_refs(node, base_url):
+def get_remote_ref_urls(node, base_url):
     refs = []
     if isinstance(node, list):
         for v in node:
             if isinstance(v, dict) or isinstance(v, list):
-                refs = refs + get_remote_refs(v, base_url)
+                refs = refs + get_remote_ref_urls(v, base_url)
     if isinstance(node, dict):
         for k, v in node.items():
             if k == "$ref" and isinstance(v, str):
                 if not is_url(v) and not v.startswith("#") and not v.startswith("/"):
                     refs.append(get_url(base_url, v))
             if isinstance(v, dict) or isinstance(v, list):
-                refs = refs + get_remote_refs(v, base_url)
+                refs = refs + get_remote_ref_urls(v, base_url)
     return list(set(refs))
+
+
+async def get_remote_schema_refs(client, schema):
+    r = await client.get(schema.url)
+    r.raise_for_status()
+    schema.schema = r.content
+
+    refs = get_remote_ref_urls(r.json(), get_base(schema.url))
+    return [RemoteSchema(url=ref) for ref in refs]
 
 
 async def collect_schemas(schemas):
     client = httpx.AsyncClient()
-    for schema in schemas:
-        if schema.fetched:
-            continue
-        r = await client.get(schema.url)
-        r.raise_for_status()
-        refs = get_remote_refs(r.json(), get_base(schema.url))
-        for ref in refs:
-            new_schema = RemoteSchema(url=ref)
-            if new_schema not in schemas:
-                schemas.append(new_schema)
-        schema.schema = r.content
+    futures = [get_remote_schema_refs(client, s) for s in schemas if not s.fetched]
 
-    return schemas
+    for refs in await asyncio.gather(*futures):
+        for ref in refs:
+            if ref not in schemas:
+                schemas.append(ref)
+
+    if all([s.fetched for s in schemas]):
+        return schemas
+
+    return await collect_schemas(schemas)
