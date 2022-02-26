@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -8,19 +9,159 @@
     <title>JSON Schema Viewer</title>
   </head>
   <body>
-    <header><h1>JSON Schema Viewer</h1></header>
+    <header><div class="container"><h1>JSON Schema Viewer</h1></div></header>
     <main>
-      <form method="get" action="/view">
-        <input
-          style="margin-right: 1em"
-          type="text"
-          name="url"
-          id="url"
-          size="36"
-          value=""
-        />
-        <input type="submit" value="view"/>
-      </form>
+      <div class="container">
+        <form method="get" action="/view">
+          <div class="form-group">
+            <label for="url">URL to a JSON Schema</label>
+            <input
+              style="margin-right: 1em"
+              type="text"
+              name="url"
+              id="url"
+              size="36"
+              value=""
+              class="form-control"
+            />
+          </div>
+
+          <div class="form-group">
+            <input type="submit" value="view" class="btn btn-primary" style="margin: 0px;" />
+          </div>
+
+          <details>
+            <summary>Options</summary>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="collapse_long_descriptions"
+                name="collapse_long_descriptions"
+                class="form-check-input"
+              />
+              <label for="collapse_long_descriptions" class="form-check-label">collapse_long_descriptions</label>
+              <p>If a description is considered big, show only the beginning and add a <code>Read more</code> button.</p>
+            </div>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="default_from_description"
+                name="default_from_description"
+                class="form-check-input"
+              />
+              <label for="default_from_description" class="form-check-label">default_from_description</label>
+              <p>
+                Extract the default value of a property from the description like this: <code>[Default `the_default_value`]</code>.
+                <br />The default value from the "default" attribute will be used in priority.
+              </p>
+            </div>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="deprecated_from_description"
+                name="deprecated_from_description"
+                class="form-check-input"
+              />
+              <label for="deprecated_from_description" class="form-check-label">deprecated_from_description</label>
+              <p>
+                Mark a property as deprecated (with a big red badge) if the description contains the string <code>[Deprecated</code>.
+              </p>
+            </div>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="description_is_markdown"
+                name="description_is_markdown"
+                class="form-check-input"
+                checked
+              />
+              <label for="description_is_markdown" class="form-check-label">description_is_markdown</label>
+              <p>Whether to consider the description as markdown and render it accordingly.</p>
+            </div>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="examples_as_yaml"
+                name="examples_as_yaml"
+                class="form-check-input"
+              />
+              <label for="examples_as_yaml" class="form-check-label">examples_as_yaml</label>
+              <p>Whether to display examples as YAML instead of JSON.</p>
+            </div>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="expand_buttons"
+                name="expand_buttons"
+                class="form-check-input"
+                checked
+              />
+              <label for="expand_buttons" class="form-check-label">expand_buttons</label>
+              <p>Add an <code>Expand all</code> and a <code>Collapse all</code> button at the top of the generated documentation.</p>
+            </div>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="show_breadcrumbs"
+                name="show_breadcrumbs"
+                class="form-check-input"
+                checked
+              />
+              <label for="show_breadcrumbs" class="form-check-label">show_breadcrumbs</label>
+              <p>For each property, show the relative place of that property in the schema.</p>
+            </div>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="show_toc"
+                name="show_toc"
+                class="form-check-input"
+              />
+              <label for="show_toc" class="form-check-label">show_toc</label>
+              <p>Whether to render table of contents.</p>
+            </div>
+
+            <div class="form-check">
+              <input
+                type="checkbox"
+                id="with_footer"
+                name="with_footer"
+                class="form-check-input"
+                checked
+              />
+              <label for="with_footer" class="form-check-label">with_footer</label>
+              <p>Whether to show the footer linking to the library repo and with the generation datetime.</p>
+            </div>
+
+            <fieldset>
+              <legend style="font-size: 1rem">
+                template_name: The name of the built-in template to use to render the documentation
+              </legend>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="template_name" id="template_name1" value="js" checked>
+                <label class="form-check-label" for="template_name1">
+                  js (uses javascript for anchor links, collapsible sections and tabs)
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="template_name" id="template_name2" value="flat">
+                <label class="form-check-label" for="template_name2">
+                  flat (uses no javascript, but has no interactivity)
+                </label>
+              </div>
+            </fieldset>
+          </details>
+
+        </form>
+      </div>
     </main>
   </body>
 </html>

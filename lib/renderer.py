@@ -5,27 +5,31 @@ from json_schema_for_humans.schema.intermediate_representation import (
 from json_schema_for_humans.template_renderer import TemplateRenderer
 
 
-def render_schema(schema):
-    config = GenerationConfiguration(
+def get_config(query_params):
+    return GenerationConfiguration(
         minify=False,
-        description_is_markdown=True,
-        deprecated_from_description=False,
-        show_breadcrumbs=True,
-        collapse_long_descriptions=False,
-        default_from_description=False,
-        expand_buttons=True,
+        description_is_markdown=bool(query_params.get("description_is_markdown")),
+        deprecated_from_description=bool(
+            query_params.get("deprecated_from_description")
+        ),
+        show_breadcrumbs=bool(query_params.get("show_breadcrumbs")),
+        collapse_long_descriptions=bool(query_params.get("collapse_long_descriptions")),
+        default_from_description=bool(query_params.get("default_from_description")),
+        expand_buttons=bool(query_params.get("expand_buttons")),
         copy_css=False,
         copy_js=False,
         link_to_reused_ref=True,
         recursive_detection_depth=25,
-        template_name="js",
+        template_name=query_params.get("template_name", "js"),
         custom_template_path=None,
-        show_toc=False,
-        examples_as_yaml=False,
-        with_footer=True,
+        show_toc=bool(query_params.get("show_toc")),
+        examples_as_yaml=bool(query_params.get("examples_as_yaml")),
+        with_footer=bool(query_params.get("with_footer")),
         footer_show_time=False,
     )
 
+
+def render_schema(schema, config):
     template_renderer = TemplateRenderer(config)
 
     with open(schema) as f:
