@@ -8,7 +8,7 @@ from starlette.responses import RedirectResponse, Response
 from starlette.routing import Route
 
 from lib.filesystem import write_schemas
-from lib.renderer import render_schema
+from lib.renderer import get_config, render_schema
 from lib.schema import RemoteSchema, collect_schemas
 
 
@@ -24,7 +24,7 @@ async def view(request):
 
     with TemporaryDirectory() as tempdir:
         target_filename = write_schemas(schemas, tempdir)
-        rendered = render_schema(target_filename)
+        rendered = render_schema(target_filename, get_config(request.query_params))
 
     return Response(rendered, status_code=200, media_type="text/html")
 
