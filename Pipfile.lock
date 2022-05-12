@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "0f97314130aa3ab252d30e027c70f77915ed31f4e6130d6e1954a16ef29de16f"
+            "sha256": "237f2970cd59841930126ad81bbf7b37cb68534e860a9e15e716fa9558f8e918"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -103,11 +103,11 @@
         },
         "json-schema-for-humans": {
             "hashes": [
-                "sha256:66784a3d37c8f730588524cc8f103448847533f067ba8b5d76e7667675ee31f1",
-                "sha256:ed900db6b19b41bf681513c48ae5e403632878745775ddfc8d5b73438d2930fe"
+                "sha256:88202f7422311d889f8b845b96dabc2c27766a4eed6253137e6d25006c9faa10",
+                "sha256:b7dc11eb6982224249b9f6ba5c9c0f47893e202f5c24c2e26b920eb956f18133"
             ],
             "index": "pypi",
-            "version": "==0.40.2"
+            "version": "==0.40.3"
         },
         "markdown2": {
             "hashes": [
@@ -203,11 +203,11 @@
         },
         "pyparsing": {
             "hashes": [
-                "sha256:7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954",
-                "sha256:ef7b523f6356f763771559412c0d7134753f037822dad1b16945b7b846f7ad06"
+                "sha256:2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb",
+                "sha256:5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc"
             ],
             "markers": "python_full_version >= '3.6.8'",
-            "version": "==3.0.8"
+            "version": "==3.0.9"
         },
         "pytz": {
             "hashes": [
@@ -559,11 +559,11 @@
         },
         "pyparsing": {
             "hashes": [
-                "sha256:7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954",
-                "sha256:ef7b523f6356f763771559412c0d7134753f037822dad1b16945b7b846f7ad06"
+                "sha256:2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb",
+                "sha256:5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc"
             ],
             "markers": "python_full_version >= '3.6.8'",
-            "version": "==3.0.8"
+            "version": "==3.0.9"
         },
         "pytest": {
             "hashes": [
