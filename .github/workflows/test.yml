@@ -13,10 +13,11 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Install pipenv
+        run: pip install pipenv
+
       - name: Install dependencies
-        run: |
-          pip install pipenv
-          pipenv sync --dev --verbose
+        run: pipenv sync --dev --verbose
 
       - name: Debug
         run: |
