@@ -22,7 +22,7 @@ jobs:
         run: |
           pipenv --version
           pipenv graph | grep certifi
-          pipenv run pip show certifi
+          pipenv run pip list
 
       - name: Run tests
         run: pipenv run test
