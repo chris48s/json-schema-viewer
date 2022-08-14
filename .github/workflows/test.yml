@@ -19,7 +19,9 @@ jobs:
           pipenv sync --dev
 
       - name: Debug
-        run: pipenv graph | grep certifi
+        run: |
+          pipenv --version
+          pipenv graph | grep certifi
 
       - name: Run tests
         run: pipenv run test
