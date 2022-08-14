@@ -13,17 +13,10 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install pipenv
-        run: pip install pipenv==2022.8.5
-
       - name: Install dependencies
-        run: pipenv sync --dev --verbose
-
-      - name: Debug
         run: |
-          pipenv --version
-          pipenv graph | grep certifi
-          pipenv run pip list
+          pip install pipenv<=2022.8.5
+          pipenv sync --dev
 
       - name: Run tests
         run: pipenv run test
