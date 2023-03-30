@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-json-schema-for-humans = "==0.44.3"
+json-schema-for-humans = "==0.44.4"
 starlette = "==0.26.1"
 httpx = "==0.23.3"
 
