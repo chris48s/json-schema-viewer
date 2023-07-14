@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "77fab62bca741a302a173dee7ce343020dc0559312a8a1af4ba2e966dd4c7d71"
+            "sha256": "60703d7c8304774d93cecef28a8c2f6c6a53209fdf96447104840afaeb0c2e22"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -115,11 +115,11 @@
         },
         "click": {
             "hashes": [
-                "sha256:2739815aaa5d2c986a88f1e9230c55e17f0caad3d958a5e13ad0797c166db9e3",
-                "sha256:b97d0c74955da062a7d4ef92fadb583806a585b2ea81958a81bd72726cbb8e37"
+                "sha256:4be4b1af8d665c6d942909916d31a213a106800c47d0eeba73d34da3cbc11367",
+                "sha256:e576aa487d679441d7d30abb87e1b43d24fc53bffb8758443b1a9e1cee504548"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==8.1.4"
+            "version": "==8.1.5"
         },
         "dataclasses-json": {
             "hashes": [
@@ -185,18 +185,18 @@
         },
         "json-schema-for-humans": {
             "hashes": [
-                "sha256:6e886e044e3b7134f52bf8da0a1bcc39699415bbe9b65241d172ef796b1336df",
-                "sha256:f6baf7be036f5affb2b2fe9b849f9304802e9d0c46b95046daffaa2a6dff64bd"
+                "sha256:4d440dae04d86776c3f93588cba2e10cdd7be22face9a519b01d450d64fe8cf1",
+                "sha256:78634f243be53f11060c9dcb970d72993603b619048ac0c6fce9a9fd101944b1"
             ],
             "index": "pypi",
-            "version": "==0.44.5"
+            "version": "==0.44.8"
         },
         "markdown2": {
             "hashes": [
                 "sha256:58e1789543f47cdd4197760b04771671411f07699f958ad40a4b56c55ba3e668",
                 "sha256:7a1742dade7ec29b90f5c1d5a820eb977eee597e314c428e6b0aa7929417cd1b"
             ],
-            "markers": "python_version >= '3.5' and python_version < '4'",
+            "markers": "python_version >= '3.5' and python_version < '4.0'",
             "version": "==2.4.9"
         },
         "markupsafe": {
@@ -442,11 +442,11 @@
         },
         "click": {
             "hashes": [
-                "sha256:2739815aaa5d2c986a88f1e9230c55e17f0caad3d958a5e13ad0797c166db9e3",
-                "sha256:b97d0c74955da062a7d4ef92fadb583806a585b2ea81958a81bd72726cbb8e37"
+                "sha256:4be4b1af8d665c6d942909916d31a213a106800c47d0eeba73d34da3cbc11367",
+                "sha256:e576aa487d679441d7d30abb87e1b43d24fc53bffb8758443b1a9e1cee504548"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==8.1.4"
+            "version": "==8.1.5"
         },
         "coverage": {
             "extras": [
