@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 json-schema-for-humans = "==0.47"
-starlette = "==0.34.0"
+starlette = "==0.35.1"
 httpx = "==0.26.0"
 
 [dev-packages]
