@@ -5,6 +5,7 @@ __pycache__/
 # vercel
 .vercel
 .env
+node_modules/
 
 # test coverage
 .coverage

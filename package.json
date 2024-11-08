@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "vercel": "^37.14.0"
+  },
+  "scripts": {
+    "start": "LOCAL=true vercel dev"
+  }
+}

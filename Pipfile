@@ -17,7 +17,7 @@ pytest-cov = "==6.0.0"
 respx = "==0.21.1"
 
 [requires]
-python_version = "3.9"
+python_version = "3.12"
 
 [scripts]
 build = "./build.py"
