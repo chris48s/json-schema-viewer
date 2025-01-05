@@ -7,7 +7,7 @@ from api.index import app
 
 def test_view_no_url():
     client = TestClient(app)
-    response = client.get("/view", allow_redirects=False)
+    response = client.get("/view", follow_redirects=False)
     assert response.status_code == 307
     assert response.headers["location"] == "/"
 
