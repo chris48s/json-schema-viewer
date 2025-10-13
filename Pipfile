@@ -9,7 +9,7 @@ starlette = "==0.48.0"
 httpx = "==0.28.1"
 
 [dev-packages]
-isort = "==6.1.0"
+isort = "==7.0.0"
 flake8 = "==7.3.0"
 black = "==25.9.0"
 pytest = "==8.4.2"
