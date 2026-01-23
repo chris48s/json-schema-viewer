@@ -12,13 +12,15 @@ if [ "$LOCAL" = "true" ]; then
     echo '..done'
 else
     # building on vercel
-    echo 'looking for pipenv..'
-    command -v pipenv || { echo 'pipenv not found, installing..' && pip3.12 install pipenv; }
+    python3.12 -m venv .venv
+    source .venv/bin/activate
+    printf 'installing pipenv..'
+    pip install --upgrade pip pipenv
 
     printf '\ninstalling..\n'
-    python3.12 -m pipenv sync
+    pipenv sync
 
     printf '\nbuilding..\n'
-    python3.12 -m pipenv run build
+    pipenv run build
     echo '..done'
 fi
