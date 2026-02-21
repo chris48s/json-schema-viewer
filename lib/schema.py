@@ -54,7 +54,7 @@ def get_remote_ref_urls(node, base_url):
 
 
 async def get_remote_schema_refs(client, schema):
-    r = await client.get(schema.url)
+    r = await client.get(schema.url, follow_redirects=True)
     r.raise_for_status()
     schema.schema = r.content
 
