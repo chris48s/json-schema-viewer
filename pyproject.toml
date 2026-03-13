@@ -1,0 +1,25 @@
+[project]
+name = "json-schema-viewer"
+version = "0.0.0"
+description = "JSON Schema Viewer"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "json-schema-for-humans==1.5.1",
+    "starlette==0.52.1",
+    "httpx==0.28.1",
+]
+
+[dependency-groups]
+dev = [
+    "isort==7.0.0",
+    "flake8==7.3.0",
+    "black==26.3.1",
+    "pytest==9.0.2",
+    "pytest-cov==7.0.0",
+    "respx==0.22.0",
+]
+
+[tool.uv]
+package = false
+required-version = "==0.9.*"
