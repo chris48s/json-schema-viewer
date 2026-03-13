@@ -19,7 +19,9 @@ jobs:
           python-version: '3.12'
 
       - name: Install dependencies
-        run: uv sync --all-groups
+        run: |
+          uv sync --all-groups
+          uv lock --check
 
       - name: Run tests
         run: make test
