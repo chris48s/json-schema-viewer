@@ -22,4 +22,4 @@ dev = [
 
 [tool.uv]
 package = false
-required-version = "==0.9.*"
+required-version = ">=0.9"
