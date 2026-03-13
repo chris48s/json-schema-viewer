@@ -11,7 +11,6 @@ View a human-readable representation of a JSON schema on the web using [coveooss
 
 ```
 npm ci
-pipenv shell
-pipenv sync --dev
+uv sync --all-groups
 npm start
 ```
