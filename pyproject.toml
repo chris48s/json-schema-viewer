@@ -3,7 +3,7 @@ name = "json-schema-viewer"
 version = "0.0.0"
 description = "JSON Schema Viewer"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.12"
 dependencies = [
     "json-schema-for-humans==1.5.1",
     "starlette==0.52.1",
