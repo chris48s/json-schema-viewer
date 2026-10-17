@@ -2,7 +2,7 @@ import os
 from json import JSONDecodeError
 from tempfile import TemporaryDirectory
 
-from httpx import HTTPError
+from httpx2 import HTTPError
 from starlette.applications import Starlette
 from starlette.responses import RedirectResponse, Response
 from starlette.routing import Route

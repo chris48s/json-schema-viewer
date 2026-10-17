@@ -2,7 +2,7 @@ import asyncio
 import urllib.parse
 from dataclasses import dataclass
 
-import httpx
+import httpx2
 
 
 @dataclass(eq=False)
@@ -63,7 +63,7 @@ async def get_remote_schema_refs(client, schema):
 
 
 async def collect_schemas(schemas):
-    client = httpx.AsyncClient()
+    client = httpx2.AsyncClient()
     futures = [get_remote_schema_refs(client, s) for s in schemas if not s.fetched]
 
     for refs in await asyncio.gather(*futures):
